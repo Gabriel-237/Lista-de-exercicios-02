@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE EXERCICIOS JS E HTML</title>
+    <style>
+        :root {
+            --bg-color: #0a0e0a;
+            --card-bg: #121812;
+            --text-color: #e0e0e0;
+            --primary-color: #00ff66;
+            --border-color: #1a331a;
+            --input-bg: #1a241a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.2rem;
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #88aa88;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            color: #ffffff;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #00cc52;
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+        }
+
+        .resultado {
+            margin-top: 12px;
+            font-weight: bold;
+            min-height: 24px;
+            color: #ffffff;
+        }
+
+        .dark-theme {
+            --bg-color: #ffffff;
+            --card-bg: #f4f6f9;
+            --text-color: #333333;
+            --primary-color: #008833;
+            --border-color: #cccccc;
+            --input-bg: #ffffff;
+        }
+    </style>
+</head>
+<body id="pagina">
+
+<header>
+    <h1>LISTA DE EXERCICIOS JS E HTML</h1>
+    <p>Coleção unificada das questões 1 a 30</p>
+</header>
+
+<div class="grid">
+
+    <!-- Questão 1 -->
+    <div class="card">
+        <h3>Q1: Média do Aluno</h3>
+        <div class="input-group">
+            <input id="q1_nota1" type="number" placeholder="Nota 1">
+            <input id="q1_nota2" type="number" placeholder="Nota 2">
+            <button id="q1_btn">Calcular</button>
+        </div>
+        <p id="q1_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 2 -->
+    <div class="card">
+        <h3>Q2: Verificação de Idade</h3>
+        <div class="input-group">
+            <input id="q2_idade" type="number" placeholder="Digite a idade">
+            <button id="q2_verificar">Verificar idade</button>
+        </div>
+        <p id="q2_mensagem" class="resultado"></p>
+    </div>
+
+    <!-- Questão 3 -->
+    <div class="card">
+        <h3>Q3: Temperatura do Servidor</h3>
+        <div class="input-group">
+            <input id="q3_temperatura" type="number" placeholder="Temperatura (°C)">
+            <button id="q3_analisar">Analisar temperatura</button>
+        </div>
+        <div id="q3_alerta" class="resultado"></div>
+    </div>
+
+    <!-- Questão 4 -->
+    <div class="card">
+        <h3>Q4: Desconto de Compra</h3>
+        <div class="input-group">
+            <input id="q4_valorCompra" type="number" placeholder="Valor da compra (R$)">
+            <button id="q4_calcular">Calcular desconto</button>
+        </div>
+        <p id="q4_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 5 -->
+    <div class="card">
+        <h3>Q5: Situação Escolar</h3>
+        <div class="input-group">
+            <input id="q5_media" type="number" placeholder="Média final">
+            <button id="q5_verificar">Verificar situação</button>
+        </div>
+        <h3 id="q5_situacao" class="resultado"></h3>
+    </div>
+
+    <!-- Questão 6 -->
+    <div class="card">
+        <h3>Q6: Controle de Acesso</h3>
+        <div class="input-group">
+            <input id="q6_nome" type="text" placeholder="Nome">
+            <input id="q6_idade" type="number" placeholder="Idade">
+            <button id="q6_acessar">Verificar acesso</button>
+        </div>
+        <p id="q6_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 7 -->
+    <div class="card">
+        <h3>Q7: Consumo de Energia</h3>
+        <div class="input-group">
+            <input id="q7_consumo" type="number" placeholder="Consumo (kWh)">
+            <button id="q7_classificar">Classificar</button>
+        </div>
+        <p id="q7_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 8 -->
+    <div class="card">
+        <h3>Q8: Validação de Senha</h3>
+        <div class="input-group">
+            <input id="q8_senha" type="password" placeholder="Senha">
+            <button id="q8_validar">Validar senha</button>
+        </div>
+        <p id="q8_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 9 -->
+    <div class="card">
+        <h3>Q9: Cálculo de Frete</h3>
+        <div class="input-group">
+            <input id="q9_compra" type="number" placeholder="Valor total compra">
+            <button id="q9_frete">Calcular</button>
+        </div>
+        <p id="q9_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 10 -->
+    <div class="card">
+        <h3>Q10: Celsius para Fahrenheit</h3>
+        <div class="input-group">
+            <input id="q10_celsius" type="number" placeholder="Temp (°C)">
+            <button id="q10_converter">Converter</button>
+        </div>
+        <p id="q10_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 11 -->
+    <div class="card">
+        <h3>Q11: Controle de Estoque</h3>
+        <div class="input-group">
+            <input id="q11_estoque" type="number" placeholder="Quantidade em estoque">
+            <button id="q11_verificar">Verificar estoque</button>
+        </div>
+        <div id="q11_resultado" class="resultado"></div>
+    </div>
+
+    <!-- Questão 12 -->
+    <div class="card">
+        <h3>Q12: Votação Eletrônica</h3>
+        <div class="input-group">
+            <input id="q12_idade" type="number" placeholder="Idade do eleitor">
+            <button id="q12_participar">Verificar</button>
+        </div>
+        <p id="q12_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 13 -->
+    <div class="card">
+        <h3>Q13: Avaliação do Cliente</h3>
+        <div class="input-group">
+            <input id="q13_nota" type="number" min="1" max="5" placeholder="Nota (1 a 5)">
+            <button id="q13_avaliar">Enviar avaliação</button>
+        </div>
+        <p id="q13_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 14 -->
+    <div class="card">
+        <h3>Q14: Salário com Desconto</h3>
+        <div class="input-group">
+            <input id="q14_salario" type="number" placeholder="Salário Bruto">
+            <button id="q14_calcular">Calcular salário</button>
+        </div>
+        <p id="q14_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 15 -->
+    <div class="card">
+        <h3>Q15: Radar de Velocidade</h3>
+        <div class="input-group">
+            <input id="q15_velocidade" type="number" placeholder="Velocidade (km/h)">
+            <button id="q15_verificar">Verificar velocidade</button>
+        </div>
+        <p id="q15_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 16 -->
+    <div class="card">
+        <h3>Q16: Controle de Frequência</h3>
+        <div class="input-group">
+            <input id="q16_frequencia" type="number" placeholder="Frequência (%)">
+            <button id="q16_verificar">Verificar frequência</button>
+        </div>
+        <p id="q16_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 17 -->
+    <div class="card">
+        <h3>Q17: Classificação de Desempenho</h3>
+        <div class="input-group">
+            <input id="q17_pontuacao" type="number" placeholder="Pontuação">
+            <button id="q17_classificar">Classificar</button>
+        </div>
+        <p id="q17_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 18 -->
+    <div class="card">
+        <h3>Q18: Validação de Formulário</h3>
+        <div class="input-group">
+            <input id="q18_nome" type="text" placeholder="Digite seu nome">
+            <button id="q18_enviar">Enviar</button>
+        </div>
+        <p id="q18_mensagem" class="resultado"></p>
+    </div>
+
+    <!-- Questão 19 -->
+    <div class="card">
+        <h3>Q19: Cálculo de Idade</h3>
+        <div class="input-group">
+            <input id="q19_anoNascimento" type="number" placeholder="Ano de Nascimento">
+            <button id="q19_calcular">Calcular idade</button>
+        </div>
+        <p id="q19_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 20 -->
+    <div class="card">
+        <h3>Q20: Semáforo Virtual</h3>
+        <div class="input-group">
+            <button id="q20_vermelho" style="background-color: #dc3545; color: white;">Vermelho</button>
+            <button id="q20_amarelo" style="background-color: #ffc107; color: black;">Amarelo</button>
+            <button id="q20_verde" style="background-color: #28a745; color: white;">Verde</button>
+        </div>
+        <p id="q20_orientacao" class="resultado"></p>
+    </div>
+
+    <!-- Questão 21 -->
+    <div class="card">
+        <h3>Q21: Tema Claro/Escuro</h3>
+        <div class="input-group">
+            <button id="q21_tema">Alterar tema</button>
+        </div>
+        <p class="resultado">Inverte o tema da página</p>
+    </div>
+
+    <!-- Questão 22 -->
+    <div class="card">
+        <h3>Q22: Saudação por Período</h3>
+        <div class="input-group">
+            <select id="q22_periodo">
+                <option value="manha">Manhã</option>
+                <option value="tarde">Tarde</option>
+                <option value="noite">Noite</option>
+            </select>
+            <button id="q22_mensagem">Exibir mensagem</button>
+        </div>
+        <p id="q22_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 23 -->
+    <div class="card">
+        <h3>Q23: Calculadora de IMC</h3>
+        <div class="input-group">
+            <input id="q23_peso" type="number" placeholder="Peso (kg)" step="0.1">
+            <input id="q23_altura" type="number" placeholder="Altura (m)" step="0.01">
+            <button id="q23_calcular">Calcular IMC</button>
+        </div>
+        <p id="q23_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 24 -->
+    <div class="card">
+        <h3>Q24: Horário da Biblioteca</h3>
+        <div class="input-group">
+            <input id="q24_horario" type="number" placeholder="Hora atual (0 - 23)">
+            <button id="q24_verificar">Verificar horário</button>
+        </div>
+        <p id="q24_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 25 -->
+    <div class="card">
+        <h3>Q25: Média de Desempenho</h3>
+        <div class="input-group">
+            <input id="q25_media" type="number" placeholder="Média final" step="0.1">
+            <button id="q25_verificar">Verificar</button>
+        </div>
+        <p id="q25_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 26 -->
+    <div class="card">
+        <h3>Q26: Total de Compras</h3>
+        <div class="input-group">
+            <input id="q26_preco" type="number" placeholder="Preço do produto" step="0.01">
+            <input id="q26_quantidade" type="number" placeholder="Quantidade">
+            <button id="q26_calcular">Calcular total</button>
+        </div>
+        <p id="q26_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 27 -->
+    <div class="card">
+        <h3>Q27: Nível de Bateria</h3>
+        <div class="input-group">
+            <input id="q27_bateria" type="number" placeholder="Carga da Bateria (%)">
+            <button id="q27_verificar">Verificar bateria</button>
+        </div>
+        <div id="q27_resultado" class="resultado"></div>
+    </div>
+
+    <!-- Questão 28 -->
+    <div class="card">
+        <h3>Q28: Inscrição em Evento</h3>
+        <div class="input-group">
+            <input id="q28_nome" type="text" placeholder="Nome">
+            <input id="q28_email" type="email" placeholder="E-mail">
+            <button id="q28_cadastrar">Cadastrar</button>
+        </div>
+        <p id="q28_resultado" class="resultado"></p>
+    </div>
+
+    <!-- Questão 29 -->
+    <div class="card">
+        <h3>Q29: Status do Produto</h3>
+        <div class="input-group">
+            <input id="q29_quantidade" type="number" placeholder="Quantidade em estoque">
+            <button id="q29_classificar">Classificar produto</button>
+        </div>
+        <h3 id="q29_resultado" class="resultado"></h3>
+    </div>
+
+    <!-- Questão 30 -->
+    <div class="card">
+        <h3>Q30: Análise de Crédito</h3>
+        <div class="input-group">
+            <input id="q30_renda" type="number" placeholder="Renda mensal (R$)">
+            <button id="q30_analisar">Analisar</button>
+        </div>
+        <div id="q30_resultado" class="resultado"></div>
+    </div>
+
+</div>
+
+<!-- Aponta diretamente para o seu exercicios.js -->
+<script src="exercicios.js"></script>
+</body>
+</html>
