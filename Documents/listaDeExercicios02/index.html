@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE EXERCICIOS JS E HTML - REPETIÇÃO</title>
+    <style>
+        :root {
+            --bg-color: #0a0e0a;
+            --card-bg: #121812;
+            --text-color: #e0e0e0;
+            --primary-color: #00ff66;
+            --border-color: #1a331a;
+            --input-bg: #1a241a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 2.2rem;
+            text-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+            margin-bottom: 5px;
+        }
+
+        header p {
+            color: #88aa88;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: var(--input-bg);
+            color: #ffffff;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: #000000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #00cc52;
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+        }
+
+        .resultado {
+            margin-top: 12px;
+            font-weight: bold;
+            min-height: 24px;
+            color: #ffffff;
+            white-space: pre-line;
+            max-height: 150px;
+            overflow-y: auto;
+            background-color: #070a07;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px dashed var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>LISTA DE EXERCICIOS JS E HTML</h1>
+    <p>Estruturas de Repetição (for, while, do...while, for...in, for...of)</p>
+</header>
+
+<div class="grid">
+
+    <!-- Exercício 1 -->
+    <div class="card">
+        <h3>1. Contagem 1 a 10 (for)</h3>
+        <p>Exibe os números de 1 até 10 em ordem crescente.</p>
+        <button id="ex1_btn">Executar</button>
+        <div id="ex1_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 2 -->
+    <div class="card">
+        <h3>2. Gerar Tabuada (for)</h3>
+        <div class="input-group">
+            <input id="ex2_num" type="number" placeholder="Digite um número (ex: 5)">
+            <button id="ex2_btn">Gerar Tabuada</button>
+        </div>
+        <div id="ex2_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 3 -->
+    <div class="card">
+        <h3>3. Soma Acumulada 1 a 100 (while)</h3>
+        <p>Calcula a soma de todos os números de 1 a 100.</p>
+        <button id="ex3_btn">Calcular Soma</button>
+        <div id="ex3_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 4 -->
+    <div class="card">
+        <h3>4. Números Pares de 0 a 20 (while)</h3>
+        <p>Filtra e exibe os números pares no intervalo de 0 a 20.</p>
+        <button id="ex4_btn">Exibir Pares</button>
+        <div id="ex4_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 5 -->
+    <div class="card">
+        <h3>5. Contagem Regressiva 10 a 1 (do...while)</h3>
+        <p>Simula contagem regressiva de lançamento.</p>
+        <button id="ex5_btn">Iniciar Contagem</button>
+        <div id="ex5_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 6 -->
+    <div class="card">
+        <h3>6. Propriedades de Objeto (for...in)</h3>
+        <p>Percorre e exibe chaves e valores de um objeto Usuário.</p>
+        <button id="ex6_btn">Exibir Dados</button>
+        <div id="ex6_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 7 -->
+    <div class="card">
+        <h3>7. Média de Notas (for...of)</h3>
+        <p>Calcula a média de um array de notas [8.5, 7.0, 9.5, 6.0].</p>
+        <button id="ex7_btn">Calcular Média</button>
+        <div id="ex7_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 8 -->
+    <div class="card">
+        <h3>8. Números Ímpares de 1 a 50</h3>
+        <p>Filtra apenas os números ímpares no intervalo de 1 a 50.</p>
+        <button id="ex8_btn">Exibir Ímpares</button>
+        <div id="ex8_res" class="resultado"></div>
+    </div>
+
+    <!-- Exercício 9 -->
+    <div class="card">
+        <h3>9. Contador Regressivo de 10 a 0</h3>
+        <p>Simula contagem regressiva de encerramento.</p>
+        <button id="ex9_btn">Executar Regressão</button>
+        <div id="ex9_res" class="resultado"></div>
+    </div>
+
+</div>
+
+<script src="lista02.js"></script>
+</body>
+</html>
